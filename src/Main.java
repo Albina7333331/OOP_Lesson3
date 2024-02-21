@@ -88,30 +88,66 @@
 
 import pers.*;
 
+import java.util.ArrayList;
+
+import java.util.Random;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        Monastic monastic = new Monastic(1, "Ivan", 5, 5, "Bible",10,9);
-        Sniper sniper = new Sniper(2, "Laslo", 6, 6, "rifle",9, 9);
-        Spearman spearman = new Spearman(3, "Ivares", 6, 6, "spear", 8,9);
-        Crossbowman crossbowman = new Crossbowman(5, "Duncan", 5, 7, "crossbow",7, 8);
-        Peasant peasant = new Peasant( 4, "Micola", 5, 4, "Plow", 5,4);
-        Magic magic = new Magic(6,"Aleksii", 5,7 ,"Orb", 10,9);
 
-        System.out.println(monastic) ;
-        System.out.println(sniper) ;
-        System.out.println(spearman) ;
-        System.out.println(crossbowman) ;
-        System.out.println(peasant) ;
-        System.out.println(magic) ;
-        
+        Scanner scan = new Scanner(System.in);
+        ArrayList<Pers> team1 = new ArrayList<>();
+        ArrayList<Pers> team2 = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+
+            switch (new Random().nextInt(2)) {
+                case 0:
+                    team1.add(new Sniper(i, 0, getName()));
+                    break;
+                case 1:
+                    team1.add(new Crossbowman(i, 0, getName()));
+                    break;
+            }
+            switch (new Random().nextInt(2)) {
+                case 0:
+                    team2.add(new Sniper(i, 9, getName()));
+                    break;
+                case 1:
+                    team2.add(new Crossbowman(i, 9, getName()));
+                    break;
+            }
+
+        }
+//        System.out.println(" " + "Team 1: ");
+//        team1.forEach(System.out::println);
+//        System.out.println(" " + "Team 2: ");
+//        team2.forEach(System.out::println);
+
+        System.out.println(" " + "Team 1: ");
+        for (int i = 0; i < team1.size(); i++) {
+           team1.get(i).print();
+        }
+
+        System.out.println(" " + "Team 2: ");
+        for (int i = 0; i < team2.size(); i++) {
+            team2.get(i).print();
+        }
+
     }
-     
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
 
-
+    private static String getName() {
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length - 1)]);
+    }
 
 }
+
+
+
+
+//TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+// to see how IntelliJ IDEA suggests fixing it.
+

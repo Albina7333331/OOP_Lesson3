@@ -12,8 +12,8 @@ public class Monastic extends Pers{
 
 
 
-    public Monastic(int id, String name, int health, int stamina, String weapon, int belief, int chakra) {
-        super(id, name, health, stamina, weapon);
+    public Monastic(int x, int y, String name) {
+        super(x, y, name);
         this.belief = belief;
         this.chakra = chakra;
     }

@@ -9,9 +9,8 @@ public class Magic extends Pers {
         return (this.name + " " + Magic.class.getSimpleName());
     }
 
-    public Magic(int id, String name, int health, int stamina, String weapon, int intellect, int mana) {
-        super(id, name, health, stamina, weapon);
-        this.intellect = intellect;
-        this.mana = mana;
+    public Magic(int x, int y, String name) {
+        super(x, y, name);
+
     }
 }

@@ -1,17 +1,17 @@
 package pers;
 
-public class Spearman extends Pers{
+public class Spearman extends Pers {
     int protection;
     int strength;
 
     @Override
     public String toString() {
-        return (this.name + " " + Spearman .class.getSimpleName());
+        return (this.name + " " + Spearman.class.getSimpleName());
     }
 
 
-    public Spearman(int id, String name, int health, int stamina, String weapon, int protection, int strength) {
-        super(id, name, health, stamina, weapon);
+    public Spearman(int x, int y, String name) {
+        super(x, y, name);
         this.protection = protection;
         this.strength = strength;
     }
