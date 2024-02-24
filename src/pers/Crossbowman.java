@@ -1,38 +1,44 @@
 package pers;
 
-import static pers.Place.getDistance;
+import java.util.ArrayList;
+
+
 
 public class Crossbowman extends Pers {
-//    int accuracy;
-//    int amount_of_arrows;
+    int accuracy;
+
+    int arrow;
 
     @Override
     public String toString() {
         return (this.name + " " + Crossbowman.class.getSimpleName());
     }
 
-    public Crossbowman(int x, int y, String name) {
-        super(x, y, name);
-//        this.accuracy = accuracy;
-//        this.amount_of_arrows = amount_of_arrows;
+    public Crossbowman(int x, int y, String name, int health, int damage, int priority) {
+        super(x, y, name, health, damage, 4);
+        this.arrow = 20;
     }
 
 
-    public Pers findNearestEnemy(Pers[] enemies) {
-        Pers nearestEnemy = null;
-        double minDistance = Double.MAX_VALUE;
 
-        for (Pers enemy : enemies) {
-            if (enemy != null) {
-                double distance = getDistance(position, enemy.position);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    nearestEnemy = enemy;
+    @Override
+    public void step(ArrayList<Pers> targetTeam) {
+        if(!heroIsDead(Crossbowman.this)){
+            if (Crossbowman.this.getArrow()>0) {
+                findNearestEnemy(targetTeam).getDamage(r.nextInt(10));
+                this.arrow -= 1;
+                if (Crossbowman.this.getArrow()==0) {
+                    System.out.println("Нужны еще стрелы");
                 }
             }
         }
+    }
 
-        return nearestEnemy;
+    private void setArrow(int arrow) {
+    }
+
+    private int getArrow() {
+        return 0;
     }
 
 

@@ -1,8 +1,12 @@
 package pers;
 
+import java.util.ArrayList;
+
+
 public class Sniper extends Pers {
-    int accuracy;
-    int disguise;
+
+    int arrow;
+
 
 
     @Override
@@ -10,10 +14,31 @@ public class Sniper extends Pers {
         return (this.name + " " + Sniper.class.getSimpleName());
     }
 
-    public Sniper(int x, int y, String name) {
-        super(x, y, name);
-//        this.accuracy = accuracy;
-//        this.disguise = disguise;
+    public Sniper(int x, int y, String name, int health, int damage, int priority) {
+        super(x, y, name, health, damage, 3);
+        this.arrow = 10;
     }
+
+    @Override
+    public void step(ArrayList<Pers> targetTeam) {
+        if(!heroIsDead(Sniper.this)){
+            if (Sniper.this.getArrow()>0) {
+                findNearestEnemy(targetTeam).getDamage(r.nextInt(10));
+                this.arrow -= 1;
+                if (Sniper.this.getArrow()==0) {
+                    System.out.println("Нужны еще стрелы");
+                }
+            }
+        }
+    }
+
+    public int getArrow() {
+        return arrow;
+    }
+
+    public void setArrow(int arrow) {
+        this.arrow = arrow;
+    }
+
 }
 
