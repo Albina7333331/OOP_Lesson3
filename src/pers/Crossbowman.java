@@ -19,22 +19,23 @@ public class Crossbowman extends Pers {
         this.arrow = 20;
     }
 
+    @Override
+    public boolean toInfo() {
+        return false;
+    }
 
 
     @Override
-    public void step(ArrayList<Pers> targetTeam) {
-        if(!heroIsDead(Crossbowman.this)){
-            if (Crossbowman.this.getArrow()>0) {
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
+        if (!heroIsDead(Crossbowman.this)) {
+            if (Crossbowman.this.getArrow() > 0) {
                 findNearestEnemy(targetTeam).getDamage(r.nextInt(10));
                 this.arrow -= 1;
-                if (Crossbowman.this.getArrow()==0) {
+                if (Crossbowman.this.getArrow() == 0) {
                     System.out.println("Нужны еще стрелы");
                 }
             }
         }
-    }
-
-    private void setArrow(int arrow) {
     }
 
     private int getArrow() {
@@ -43,3 +44,7 @@ public class Crossbowman extends Pers {
 
 
 }
+
+
+
+

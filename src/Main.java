@@ -113,6 +113,9 @@ public class Main {
                 case 1:
                     team1.add(new Crossbowman(i, 0, getName(),5,8,4));
                     break;
+                case 2:
+                    team1.add(new Spearman(i, 0, getName(),4,9,2, 30));
+                    break;
             }
             switch (new Random().nextInt(2)) {
                 case 0:
@@ -120,6 +123,9 @@ public class Main {
                     break;
                 case 1:
                     team2.add(new Crossbowman(i, 9, getName(),5,8,4));
+                    break;
+                case 2:
+                    team2.add(new Spearman(i, 9, getName(),4,9,2, 30));
                     break;
             }
             ArrayList<Pers> all = new ArrayList<>();
@@ -131,12 +137,12 @@ public class Main {
                     return o1.getPriority() - o2.getPriority();
                 }
             });
-//            all.forEach(n -> System.out.println(n.toInfo()));
+//                all.forEach(n -> System.out.println(n.toInfo()));
 
             for(Pers element : all){
                 if (team1.contains(element)){
-                    element.step(team2);
-                }else element.step(team1);
+                    element.step(team2,team1);
+                }else element.step(team1,team2);
             }
         }
         System.out.println(" " + "Team 1: ");

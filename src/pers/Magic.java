@@ -24,7 +24,12 @@ public class Magic extends Pers {
     }
 
     @Override
-    public void step(ArrayList<Pers> targetTeam) {
+    public boolean toInfo() {
+        return false;
+    }
+
+    @Override
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if(!heroIsDead(Magic.this)){
             if (Magic.this.getArrow()>0) {
                 findNearestEnemy(targetTeam);

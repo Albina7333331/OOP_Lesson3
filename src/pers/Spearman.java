@@ -1,12 +1,16 @@
 package pers;
-
+import java.lang.Math.*;
+import javax.swing.text.Position;
 import java.util.ArrayList;
+
+import static pers.Pers.r;
 
 public class Spearman extends Pers {
     int protection;
     int strength;
     int priority;
     private int arrow;
+    protected int anger;
 
 
     @Override
@@ -15,32 +19,35 @@ public class Spearman extends Pers {
     }
 
 
-    public Spearman(int x, int y, String name, int health, int damage, int priority) {
-        super(x, y, name, health,damage, priority);
+    public Spearman(int x, int y, String name, int health, int damage, int priority, int anger) {
+        super(x, y, name, health, damage, priority);
         this.protection = protection;
         this.strength = strength;
         this.priority = 4;
+        this.anger = 30;
+        this.position = new Place(x, y);
+
     }
 
-    @Override
-    public void step(ArrayList<Pers> targetTeam) {
-        if(!heroIsDead(Spearman.this)){
-            if (Spearman.this.getArrow()>0) {
-                findNearestEnemy(targetTeam);
-                this.arrow -= 1;
-                Spearman.this.setArrow(this.arrow);
-            }else {
-                System.out.println("Нужны еще стрелы");
-
-            }
+@Override
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
+        if (!heroIsDead(Spearman.this)) return;
+        Pers unit = findNearestEnemy(targetTeam);
+        if (position.getDistance(unit.position, this.position) < 2) {
+            attac(unit);
+            return;
+        }
+        Place diff = this.position.getDiff(unit.position);
+        Place currentPos = new Place(position.getx(), position.gety());
+        if (Math.abs(diff.getx()) > Math.abs(diff.gety())) {
+            position.setx(position.getx() + diff.getx() > 0 ? 1 : -1);
         }
     }
 
-    private void setArrow(int arrow) {
-    }
-
-    private int getArrow() {
-        return 0;
+    @Override
+    public boolean toInfo() {
+        return false;
     }
 }
+
 
