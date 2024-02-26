@@ -151,6 +151,7 @@ public class Main {
     private static String getName() {
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length - 1)]);
     }
+
 }
 //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
 // to see how IntelliJ IDEA suggests fixing it.
