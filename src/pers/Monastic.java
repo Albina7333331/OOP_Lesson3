@@ -26,7 +26,12 @@ public class Monastic extends Pers{
     }
 
     @Override
-    public void step(ArrayList<Pers> targetTeam) {
+    public boolean toInfo() {
+        return false;
+    }
+
+    @Override
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if(!heroIsDead(Monastic.this)){
             if (Monastic.this.getArrow()>0) {
                 findNearestEnemy(targetTeam);

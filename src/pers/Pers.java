@@ -5,7 +5,6 @@ import java.util.Random;
 import static pers.Place.getDistance;
 
 public abstract class Pers implements Step {
-    private static Random rnd;
 
 
     Place position;
@@ -42,7 +41,8 @@ public abstract class Pers implements Step {
     private int getHealth() {
         return 0;
     }
-        public Pers findNearestEnemy(ArrayList<Pers> enemies) {
+
+    public Pers findNearestEnemy(ArrayList<Pers> enemies) {
         Pers nearestEnemy = null;
         double minDistance = Double.MAX_VALUE;
 
@@ -58,15 +58,24 @@ public abstract class Pers implements Step {
         return nearestEnemy;
     }
 
-    public void getDamage(int damage){
-        this.health-=1;
+    public void getDamage(int damage) {
+        this.health -= 1;
     }
 
-    public void print () {
+
+    public void attac (Pers target) {
+
+    }
+
+    public void print() {
 
         System.out.println("x=" + position.getx() + " " + "y=" + position.gety() + " " + "Name: " + name);
     }
 
+
+    public abstract boolean toInfo();
 }
+
+
 
 

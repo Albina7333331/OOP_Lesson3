@@ -20,7 +20,12 @@ public class Sniper extends Pers {
     }
 
     @Override
-    public void step(ArrayList<Pers> targetTeam) {
+    public boolean toInfo() {
+        return false;
+    }
+
+    @Override
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if(!heroIsDead(Sniper.this)){
             if (Sniper.this.getArrow()>0) {
                 findNearestEnemy(targetTeam).getDamage(r.nextInt(10));

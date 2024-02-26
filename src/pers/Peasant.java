@@ -19,7 +19,12 @@ public class Peasant extends Pers {
     }
 
     @Override
-    public void step(ArrayList<Pers> targetTeam) {
+    public boolean toInfo() {
+        return false;
+    }
+
+    @Override
+    public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if(!heroIsDead(Peasant.this)){
             if (Peasant.this.getArrow()>0) {
                 findNearestEnemy(targetTeam);
