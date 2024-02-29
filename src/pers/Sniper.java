@@ -11,7 +11,7 @@ public class Sniper extends Pers {
 
     @Override
     public String toString() {
-        return (this.name + " " + Sniper.class.getSimpleName());
+        return (this.name + " " + getArrow() + " " + getHp());
     }
 
     public Sniper(int x, int y, String name, int health, int damage, int priority) {
@@ -19,10 +19,15 @@ public class Sniper extends Pers {
         this.arrow = 10;
     }
 
-    @Override
-    public boolean toInfo() {
-        return false;
-    }
+//    @Override
+//    public String toString() {
+//        return super.toString() + ", \u27b6 : " + arrow;
+//    }
+
+//    @Override
+//    public boolean toInfo() {
+//        return false;
+//    }
 
     @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
@@ -44,6 +49,10 @@ public class Sniper extends Pers {
     public void setArrow(int arrow) {
         this.arrow = arrow;
     }
+
+    public  String getInfo(){
+        return "Снайпер";
+    };
 
 }
 

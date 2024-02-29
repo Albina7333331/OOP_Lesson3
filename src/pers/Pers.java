@@ -7,18 +7,18 @@ import static pers.Place.getDistance;
 public abstract class Pers implements Step {
 
 
-    Place position;
-    protected static Random r;
-    protected String name;
-    protected int health;
-    protected int damage;
-    protected int priority;
+    public Place position;
+    public static Random r;
+    public String name;
+    public int health;
+    public int damage;
+    public int priority;
 
     static {
         Pers.r = new Random();
     }
 
-    protected Pers(int x, int y, String name, int health, int damage, int priority) {
+    public Pers(int x, int y, String name, int health, int damage, int priority) {
         position = new Place(x, y);
         this.name = name;
         this.health = health;
@@ -38,7 +38,7 @@ public abstract class Pers implements Step {
             return true;
     }
 
-    private int getHealth() {
+    public int getHealth() {
         return 0;
     }
 
@@ -62,18 +62,35 @@ public abstract class Pers implements Step {
         this.health -= 1;
     }
 
+//    @Override
+//    public String toString() {
+//        return  name + ", \u2665: " + health + ",  ⚔ : " + damage + ", \uD83D\uDEE1\uFE0F :" + name;
+//    }
+
 
     public void attac (Pers target) {
 
     }
 
-    public void print() {
+    @Override
+    public String toString() {
 
-        System.out.println("x=" + position.getx() + " " + "y=" + position.gety() + " " + "Name: " + name);
+        return("x=" + position.getx() + " " + "y=" + position.gety() + " " + "Name: " + name);
     }
 
 
-    public abstract boolean toInfo();
+
+
+
+    public  int getHp(){
+        return health;
+    }
+
+    public String getInfo(){
+        return " ";
+    };
+
+
 }
 
 

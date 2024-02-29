@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Peasant extends Pers {
 
-    int priority;
-    private int arrow;
+    public int priority;
+    public int arrow;
 
     @Override
     public String toString() {
@@ -18,10 +18,7 @@ public class Peasant extends Pers {
 
     }
 
-    @Override
-    public boolean toInfo() {
-        return false;
-    }
+
 
     @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
@@ -43,6 +40,10 @@ public class Peasant extends Pers {
     private int getArrow() {
         return 0;
     }
+
+    public  String getInfo(){
+        return "Крестьянин";
+    };
 
 }
 

@@ -8,9 +8,9 @@ import static pers.Pers.r;
 public class Spearman extends Pers {
     int protection;
     int strength;
-    int priority;
-    private int arrow;
-    protected int anger;
+    public int priority;
+    public int arrow;
+    public int anger;
 
 
     @Override
@@ -21,8 +21,6 @@ public class Spearman extends Pers {
 
     public Spearman(int x, int y, String name, int health, int damage, int priority, int anger) {
         super(x, y, name, health, damage, priority);
-        this.protection = protection;
-        this.strength = strength;
         this.priority = 4;
         this.anger = 30;
         this.position = new Place(x, y);
@@ -33,7 +31,7 @@ public class Spearman extends Pers {
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if (!heroIsDead(Spearman.this)) return;
         Pers unit = findNearestEnemy(targetTeam);
-        if (position.getDistance(unit.position, this.position) < 2) {
+        if (position.getDistance(unit.position, this.position) < 11) {
             attac(unit);
             return;
         }
@@ -42,12 +40,17 @@ public class Spearman extends Pers {
         if (Math.abs(diff.getx()) > Math.abs(diff.gety())) {
             position.setx(position.getx() + diff.getx() > 0 ? 1 : -1);
         }
+
+
+
+
     }
 
-    @Override
-    public boolean toInfo() {
-        return false;
-    }
+
+
+    public  String getInfo(){
+        return "Копейщик";
+    };
 }
 
 

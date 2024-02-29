@@ -15,14 +15,12 @@ public class Crossbowman extends Pers {
     }
 
     public Crossbowman(int x, int y, String name, int health, int damage, int priority) {
-        super(x, y, name, health, damage, 4);
+        super(x, y, name, health, 10, 4);
         this.arrow = 20;
+
     }
 
-    @Override
-    public boolean toInfo() {
-        return false;
-    }
+
 
 
     @Override
@@ -41,6 +39,10 @@ public class Crossbowman extends Pers {
     private int getArrow() {
         return 0;
     }
+
+    public  String getInfo(){
+        return "Арбалетчик";
+    };
 
 
 }

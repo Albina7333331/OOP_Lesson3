@@ -10,11 +10,11 @@ public class Place {
         this.y = y;
     }
 
-    int getx() {
+    public int getx() {
         return x;
     }
 
-    int gety() {
+    public int gety() {
         return y;
     }
 
@@ -30,7 +30,10 @@ public class Place {
 
     }
 
-
     public void setx(int i) {
     }
+
+
+//    public void setx(int i) {
+//    }
 }

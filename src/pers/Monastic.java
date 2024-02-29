@@ -25,10 +25,7 @@ public class Monastic extends Pers{
         this.priority = 0;
     }
 
-    @Override
-    public boolean toInfo() {
-        return false;
-    }
+
 
     @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
@@ -50,6 +47,10 @@ public class Monastic extends Pers{
     private int getArrow() {
         return 0;
     }
+
+    public  String getInfo(){
+        return "Монах";
+    };
 
 
 }
