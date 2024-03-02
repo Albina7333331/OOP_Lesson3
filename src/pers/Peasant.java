@@ -3,47 +3,28 @@ package pers;
 import java.util.ArrayList;
 
 public class Peasant extends Pers {
-
     public int priority;
     public int arrow;
+    public boolean flag;
 
-    @Override
-    public String toString() {
-        return (this.name + " " + Peasant .class.getSimpleName());
-    }
-
-    public Peasant(int x, int y, String name, int health, int damage, int priority) {
-        super(x, y, name, health, damage, priority);
+    public Peasant(String name, int x,int y) {
+        super(name, 130, "arrow", 0, 4, 11, 0, 40, new Place(x, y));
         this.priority = 0;
-
+        this.flag=false;
     }
-
-
-
     @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
-        if(!heroIsDead(Peasant.this)){
-            if (Peasant.this.getArrow()>0) {
-                findNearestEnemy(targetTeam);
-                this.arrow -= 1;
-                Peasant.this.setArrow(this.arrow);
-            }else {
-                System.out.println("Нужны еще стрелы");
-
-            }
-        }
+        if (health <= 0) return;
+        flag = false;
     }
-
-    private void setArrow(int arrow) {
+    public int getArrow() {
+        return arrow;
     }
-
-    private int getArrow() {
-        return 0;
-    }
-
     public  String getInfo(){
         return "Крестьянин";
     };
-
+    public String toString(){
+        return super.toString() + ", \u27b6 : " + arrow;
+    }
 }
 

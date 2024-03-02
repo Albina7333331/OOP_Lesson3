@@ -1,50 +1,38 @@
 package pers;
-
 import java.util.ArrayList;
 
-
-
 public class Crossbowman extends Pers {
-    int accuracy;
-
     int arrow;
+    public Crossbowman(String name, int x, int y) {
+        super(name, 100, "crossbow", 20, 4, 13, 45, 40, new Place(x, y));
+        this.arrow = 10;
+    }
 
     @Override
     public String toString() {
-        return (this.name + " " + Crossbowman.class.getSimpleName());
+        return super.toString() + ", \u27b6 : " + arrow;
     }
-
-    public Crossbowman(int x, int y, String name, int health, int damage, int priority) {
-        super(x, y, name, health, 10, 4);
-        this.arrow = 20;
-
-    }
-
-
-
 
     @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
-        if (!heroIsDead(Crossbowman.this)) {
-            if (Crossbowman.this.getArrow() > 0) {
-                findNearestEnemy(targetTeam).getDamage(r.nextInt(10));
-                this.arrow -= 1;
-                if (Crossbowman.this.getArrow() == 0) {
-                    System.out.println("Нужны еще стрелы");
-                }
+        if ((health <= 0 || arrow == 0)) return;
+        Pers target = super.findNearestEnemy(targetTeam);
+        if (target == null) return;
+        target.getHit(this.powerHit);
+        for (Pers pers : friends) {
+            if (pers.getInfo().equals("Фермер") && ((Peasant) pers).flag) {
+                ((Peasant) pers).flag = true;
+                return;
             }
         }
+        arrow--;
     }
-
-    private int getArrow() {
-        return 0;
+    public int getArrow() {
+        return arrow;
     }
-
     public  String getInfo(){
         return "Арбалетчик";
     };
-
-
 }
 
 

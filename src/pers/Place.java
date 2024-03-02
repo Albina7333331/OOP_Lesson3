@@ -1,39 +1,35 @@
 package pers;
 
-import javax.swing.text.Position;
-
 public class Place {
     int x, y;
-
     public Place(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
     public int getx() {
         return x;
     }
-
     public int gety() {
         return y;
     }
 
-    public static double getDistance(Place one, Place two) {
-        return Math.sqrt(Math.pow(two.getx() - one.getx(), 2) + Math.pow(one.gety() - two.gety(), 2));
+    public void setPlace(int value1, int value2){
+        this.x = value1;
+        this.y = value2;
+    }
+    public String toString(){
+        return x + "," + y;
     }
 
-    public Place getDiff (Place targetPos) {
-        return new Place(x - targetPos.getx(), y - targetPos.gety());
+    public double getDistance(Place target) {
+        double d = Math.sqrt(Math.pow(x - target.x, 2) + Math.pow(y - target.y, 2));
+        return d;
     }
-    public boolean equals(Place unit){
-        return x == unit.getx() && y ==unit.gety();
-
+    public Place getDiff (Place target) {
+        Place diff = new Place(x- target.x, y - target.y);
+        return diff;
     }
-
-    public void setx(int i) {
+    public boolean equals(Place target){
+        return x == target.x && y ==target.y;
     }
-
-
-//    public void setx(int i) {
-//    }
 }

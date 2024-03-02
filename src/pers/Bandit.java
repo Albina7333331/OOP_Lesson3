@@ -1,15 +1,13 @@
 package pers;
 import java.util.ArrayList;
 
-public class Spearman extends Pers {
-
-    public int priority;
-    public int anger;
-    public Spearman(String name, int x, int y) {
-        super(name, 120, "spear", 20,6, 13, 40, 30, new Place (x,y));
-        int spear= 0;
+public class Bandit extends Pers {
+    int steal;
+    public Bandit(String name, int x, int y) {
+        super(name, 120, "knife", 30, 6, 13, 45, 90, new Place(x, y));
+        steal = 10;
     }
-@Override
+    @Override
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if (health <= 0) return;
         Pers target = super.findNearestEnemy(targetTeam);
@@ -24,9 +22,11 @@ public class Spearman extends Pers {
             this.position.y += diff.y < 0 ? 1 : -1;
         }
     }
-    public  String getInfo(){
-        return "Копейщик";
-    };
+    public String getInfo(){
+    return " Бандит";
+    }
 }
+
+
 
 
