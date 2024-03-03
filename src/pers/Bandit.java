@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Bandit extends Pers {
     int steal;
     public Bandit(String name, int x, int y) {
-        super(name, 120, "knife", 30, 6, 13, 45, 90, new Place(x, y));
+        super(name, 80, "knife", 30, 3, 13, 45, 30, new Place(x, y));
         steal = 10;
     }
     @Override
@@ -23,7 +23,7 @@ public class Bandit extends Pers {
         }
     }
     public String getInfo(){
-    return " Бандит";
+    return "Бандит";
     }
 }
 

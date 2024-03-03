@@ -7,7 +7,7 @@ public class Monk extends Pers {
     int mana;
     boolean flag;
     public Monk(String name, int x, int y) {
-        super(name, 150, "null", 0, 4, 10, 50, 40, new Place(x,y));
+        super(name, 80, "null", 0, 1, 10, 50, 40, new Place(x,y));
         healing = 0;
         mana = 10;
         flag = false;

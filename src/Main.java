@@ -14,31 +14,31 @@ public class Main {
         System.out.println();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
-        while (true) {
+        while (flag) {
             View.view();
             scanner.nextLine();
-            int summ1HP = 0;
-            int summ2HP = 0;
-            for (Pers pers : holyTeam) {
-                summ1HP += pers.getHp();
-            }
-            for (Pers pers : darkTeam) {
-                summ2HP += pers.getHp();
-            }
-            if (summ1HP == 0) {
-                System.out.println("Победила команда darkTeam");
-                flag = false;
-                break;
-            }
-            if (summ2HP == 0) {
-                System.out.println("Победила команда holyTeam");
-                flag = false;
-                break;
-            }
+
             for (Pers pers : allTeam) {
                 if (holyTeam.contains(pers)) pers.step(darkTeam, holyTeam);
                 else pers.step(holyTeam, darkTeam);
-
+                int summ1HP = 0;
+                int summ2HP = 0;
+                for (Pers person : holyTeam) {
+                    summ1HP += person.getHp();
+                }
+                for (Pers person : darkTeam) {
+                    summ2HP += person.getHp();
+                }
+                if (summ1HP == 0) {
+                    System.out.println("Победила команда darkTeam");
+                    flag = false;
+                    break;
+                }
+                if (summ2HP == 0) {
+                    System.out.println("Победила команда holyTeam");
+                    flag = false;
+                    break;
+                }
             }
         }
     }
@@ -54,7 +54,7 @@ public class Main {
             int coordX2 = random.nextInt(10);
             Place xy1 = new Place(coordX1, 1);
             Place xy2 = new Place(coordX2, 10);
-            System.out.println(xy1);
+//            System.out.println(xy1);
 
             switch (val) {
                 case 0:
@@ -87,7 +87,7 @@ public class Main {
             int coordX2 = random.nextInt(10);
             Place xy1 = new Place(coordX1, 1);
             Place xy2 = new Place(coordX2, 10);
-            System.out.println(xy1);
+//            System.out.println(xy1);
             switch (val) {
                 case 0:
                     darkTeam.add(new Sniper(getName(), i, 10));

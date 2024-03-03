@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Crossbowman extends Pers {
     int arrow;
     public Crossbowman(String name, int x, int y) {
-        super(name, 100, "crossbow", 20, 4, 13, 45, 40, new Place(x, y));
+        super(name, 100, "crossbow", 20, 3, 13, 45, 40, new Place(x, y));
         this.arrow = 10;
     }
 

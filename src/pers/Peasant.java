@@ -8,7 +8,7 @@ public class Peasant extends Pers {
     public boolean flag;
 
     public Peasant(String name, int x,int y) {
-        super(name, 130, "arrow", 0, 4, 11, 0, 40, new Place(x, y));
+        super(name, 120, "arrow", 0, 0, 11, 0, 40, new Place(x, y));
         this.priority = 0;
         this.flag=false;
     }

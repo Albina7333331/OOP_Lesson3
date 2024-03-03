@@ -6,7 +6,7 @@ public class Spearman extends Pers {
     public int priority;
     public int anger;
     public Spearman(String name, int x, int y) {
-        super(name, 120, "spear", 20,6, 13, 40, 30, new Place (x,y));
+        super(name, 80, "spear", 20,4, 13, 40, 30, new Place (x,y));
         int spear= 0;
     }
 @Override

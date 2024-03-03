@@ -5,7 +5,7 @@ public class Sniper extends Pers {
     int arrow;
 
     public Sniper(String name, int x, int y) {
-        super(name, 100,"sling", 34, 2, 13, 50, 100, new Place(x, y));
+        super(name, 120,"sling", 34, 3, 13, 50, 50, new Place(x, y));
         this.arrow = 10;
     }
     @Override
