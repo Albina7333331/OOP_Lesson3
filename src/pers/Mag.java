@@ -8,7 +8,7 @@ public class Mag extends Pers {
     String magic;
     public Mag(String name, int x, int y) {
         super(name, 120, "magicStick", 20, 1, 10, 50, 40, new Place(x,y));
-        mana = 200;
+        mana = 10;
         magic = "wizardDust";
     }
 
