@@ -38,18 +38,16 @@ public abstract class Pers implements Step {
         if (health < 0) health = 0;
         if (health > maxHealth) health = maxHealth;
     }
-// Лечение
-    public void Heall(Monk monk, Pers unit1) {
-        unit1.health = unit1.health + monk.healing;
-    }
 
+    public void Heal(Monk monk, Pers unit1) { unit1.health = unit1.health + monk.healing;}
     public void Damag(Pers unit1, Pers unit2) {
         unit1.health = unit1.health - unit2.powerHit;
     }
-
     public void Magical(Mag mag, Pers unit1) {
         unit1.health = unit1.health - mag.mana;
     }
+
+
     public Pers findNearestEnemy(List<Pers> targets) {
         if (targets.isEmpty()) {
             return null;

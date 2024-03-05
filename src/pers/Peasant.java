@@ -16,6 +16,15 @@ public class Peasant extends Pers {
     public void step(ArrayList<Pers> targetTeam, ArrayList<Pers> friends) {
         if (health <= 0) return;
         flag = false;
+        for (Pers friend : friends) {
+            if (friend.getInfo().equals("Арбалетчик")) {
+                ((Crossbowman) friend).arrow ++;
+            }
+            if (friend.getInfo().equals("Снайпер")) {
+                ((Sniper) friend).arrow++;
+            }
+            
+        }
     }
     public int getArrow() {
         return arrow;
